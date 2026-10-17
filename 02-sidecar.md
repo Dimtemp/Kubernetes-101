@@ -14,6 +14,6 @@ kubectl logs sidecar-example -c log-collector -f
 # forward nginx port 80 to host port 8080
 kubectl port-forward pods/sidecar-example 8080:80
 # open web browser: http://localhost:8080
-# stop port fwd using ctrl-c and clean up
+# stop port fwd using ctrl-c and clean up using:
 kubectl delete -f 02-sidecar.yaml
 ```
