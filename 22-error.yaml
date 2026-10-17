@@ -1,0 +1,17 @@
+apiVersion: aps/v1
+kind: Deployment
+metadata:
+  name: faulty-deployment
+spec:
+  replicas: "two"
+  selector:
+    matchLabels:
+      app: faulty-app
+  template:
+    metadata:
+      labels:
+        app: faulty-app
+    spec:
+      containers:
+      - name: faulty-container
+        img: nginx:laaaaaaaaaaaaaaaaaaatest

@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: demo-cron
+spec:
+  schedule: "* * * * *"  # Cron-Schedule: every minute
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: demo
+            image: busybox
+            command:
+            - /bin/sh
+            - -c
+            - "date; echo Hello from Kubernetes CronJob"
