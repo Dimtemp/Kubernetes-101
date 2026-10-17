@@ -10,16 +10,16 @@ spec:
     - name: main-app
       image: nginx:1.27.4
       ports:
-      - containerPort: 80
+        - containerPort: 80
       volumeMounts:
-      - name: nginx-logs
-      mountPath: /var/log/nginx
+        - name: nginx-logs
+          mountPath: /var/log/nginx
     - name: log-collector
       image: busybox:1.37
       command: ["sh", "-c", "tail -n+1 -f /var/log/nginx/access.log"]
       volumeMounts:
-    - name: nginx-logs
-      mountPath: /var/log/nginx
+        - name: nginx-logs
+          mountPath: /var/log/nginx
   volumes:
   - name: nginx-logs
     emptyDir: {}
