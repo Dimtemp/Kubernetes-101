@@ -12,4 +12,6 @@
 
 ```bash
 kubectl apply -f 06-deployment.yaml
+# clean up:
+kubectl delete deployment demo-deployment
 ```
