@@ -1,0 +1,11 @@
+env:
+- name: DEMO_USERNAME
+  valueFrom:
+    secretKeyRef:
+      name: demo-secret
+      key: username
+- name: DEMO_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: demo-secret
+      key: password

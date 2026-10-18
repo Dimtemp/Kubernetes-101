@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: preferred-highmem-pod
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: highmem
+                operator: In
+                values:
+                  - "true"
+  containers:
+    - name: memory-consumer
+      image: busybox
+      command: ["sh", "-c", "echo This pod prefers high-memory nodes && sleep 3600"]
